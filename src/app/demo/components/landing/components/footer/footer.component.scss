@@ -1,0 +1,15 @@
+textarea {
+    resize: none;
+  }
+
+  small{
+    white-space: nowrap;
+    left: 0;
+    // position: absolute;
+    bottom: -15px;
+    font-size: x-small;
+    color: #AC2317;
+    &.last{
+      bottom: 90px;
+    }
+  }

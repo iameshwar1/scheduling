@@ -1,0 +1,85 @@
+<div class="layout-footer">
+    <div class="flex align-items-center justify-content-between w-full p-5">
+        <button pbutton="" pripple="" label="Consider Contributing" class="p-element p-ripple p-button p-component" (click)="toggleContribution()">
+            <span class="p-button-label">Consider Contributing</span><span class="p-ink" style="height: 152px; width: 152px; top: -60px; left: -42px;"></span>
+        </button>
+        <button pbutton="" pripple="" label="Testimonials" class="p-element p-ripple p-button p-component" (click)="viewTestimonials()">
+            <span class="p-button-label">Testimonials</span><span class="p-ink" style="height: 152px; width: 152px; top: -60px; left: -42px;"></span>
+        </button>
+        
+    </div>
+</div>
+
+<p-dialog header="Consider Contributing" [(visible)]="contribute" [modal]="true" [style]="{width: '50vw'}">
+    <p>Your support fuels my efforts to create valuable content. Please consider contributing to help sustain this work and its impact. Thank you for your generosity!</p>
+    <p-accordion [activeIndex]="0">
+        <p-accordionTab header="Zelle">
+            <div class="flex flex-column align-items-center justify-content-between w-full">
+                <img src="assets/demo/images/landing/zelle.png" height="350" width="300"/>
+            </div>
+            
+        </p-accordionTab>
+        <p-accordionTab header="Paypal">
+            <div class="flex flex-column align-items-center justify-content-between w-full">
+                <img src="assets/demo/images/landing/paypal.png" height="400" width="500"/>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Cash App">
+            <div class="flex flex-column align-items-center justify-content-between w-full">
+                <img src="assets/demo/images/landing/cashapp.jpg" height="350" width="300"/>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+</p-dialog>
+<p-dialog header="Testimonials" [(visible)]="visible" [style]="{width: '50vw'}" [modal]="true" (onHide)="write = false; visible = false;">
+    <div class="grid -mt-3 -ml-3 -mr-3"  *ngIf="!write && feedbackData?.length > 0">
+        <div class="col-12 lg:col-6" *ngFor="let feedback of feedbackData">
+            <div class="p-2">
+                <div class="border-1 surface-border border-round p-3">
+                    <div class="flex align-items-center mb-3"><img src="assets/images/blocks/avatars/circle/avatar-f-1.png" class="w-2rem h-2rem flex-shrink-0 mr-2">
+                        <span class="text-900 font-medium mr-3">{{feedback?.name}}</span>
+                        <!-- <span class="text-sm font-medium text-500">1d ago</span> -->
+                        <span class="ml-auto">
+                            <i class="pi pi-star-fill text-yellow-500 mr-1" *ngIf="feedback.stars >= 1"></i>
+                            <i class="pi pi-star-fill text-yellow-500 mr-1" *ngIf="feedback.stars >= 2"></i>
+                            <i class="pi pi-star-fill text-yellow-500 mr-1" *ngIf="feedback.stars >= 3"></i>
+                            <i class="pi pi-star-fill text-yellow-500 mr-1" *ngIf="feedback.stars >= 4"></i>
+                            <i class="pi pi-star-fill text-yellow-500 mr-1" *ngIf="feedback?.stars > 4"></i>
+                        </span>
+                    </div>
+                    <p class="m-0 p-0 line-height-3 text-600"> {{feedback?.feedback}} </p>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+    <div *ngIf="write">
+        <p-button label="Back" [text]="true" (click)="write = !write"></p-button>
+        <form *ngIf="enquireForm" [formGroup]="enquireForm" (ngSubmit)="submitForm()">
+            <div class="p-fluid formgrid grid px-4 md:px-6 lg:px-4">
+                <div class="field col-12 lg:col-6 mb-4">
+                    <input type="text" pInputText placeholder="Name" [formControl]="name"/>
+                    <small *ngIf="enquireForm.controls.name.status === 'INVALID' && enquireForm.controls.name.dirty">Name Required</small>
+                </div>
+                <div class="field col-12 mb-4">
+                    <textarea pKeyFilter="int" rows="5" cols="30" pInputTextarea placeholder="Feedback" [formControl]="feedback"></textarea>
+                </div>
+                <div class="field col-12 mb-4">
+                    <p-rating [formControl]="stars" [cancel]="false"></p-rating>
+                </div>
+                <div class="col-12">
+                    <button pbutton="" pripple="" [disabled]="!enquireForm.dirty || enquireForm.status === 'INVALID' || disableForm" label="Send Message" icon="pi pi-send" class="p-element p-ripple w-auto p-button p-component" style=" color: white !important">
+                        <span class="p-button-icon p-button-icon-left pi pi-send" aria-hidden="true"></span>
+                        <span class="p-button-label">Post Message</span>
+                        <span class="p-ink"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button *ngIf="!write" icon="pi pi-pencil" label="Write a Testimonial" pAutoFocus [autofocus]="true" (click)="write = !write"></p-button>
+    </ng-template>
+</p-dialog>
+<p-toast position="bottom-center"></p-toast>

@@ -1,0 +1,79 @@
+<div class="block-content">
+    <div class="flex flex-row relative ng-star-inserted">
+        <div class="surface-section border-right-1 surface-border flex-column w-25rem select-none">
+            <div class="col-12 p-3 flex flex-column align-items-center justify-content-center text-center mb-5 mt-5 w-25rem">
+                <img src="assets/demo/images/avatar/personal-image.jpg" class="profile-img mb-3" alt="Image" height="170" width="165">
+                <div class="text-xl text-900 font-medium mb-3">Eshwara Ramesh</div>
+                <div class="text-blue-600 text-xl mb-3 text-center">V2X Firmware Engineer - Eaton | Ex - Atom Power | Member - IAENG</div>
+                <!-- <div class="inline-flex align-items-center">
+                    <a class="mr-3 text-600 cursor-pointer" href="https://www.linkedin.com/in/eshwarramesh/">
+                        <i class="pi pi-linkedin text-xl"></i>
+                    </a>
+                   
+                </div> -->
+                <div class="col-12 p-2 mt-5">
+                    <div class="font-medium text-xl text-900 mb-3">About Me</div>
+                    <p class="text-700 line-height-3 m-0 text-justify">
+                        I am a hands-on leader with over nine years of experience in the design, implementation, and management of connected systems. Practical experience with software development life cycle, design, cloud solutions and distributed systems. Architected and Implemented several large commercial and industrial IoT and software systems. Built and managed high-performance cross-functional teams. Passionate about technology and the continuous education required to master new architectures, frameworks, and patterns.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid mt-3 ml-3 mr-3">
+            <div class="col-12 xl:col-4" *ngFor="let talent of talents">
+                <div class="p-2">
+                    <div class="shadow-2 p-4 surface-card" style="border-radius: 1rem;">
+                        <div class="flex flex-column w-full">
+                            <div class="flex flex-column">
+                                <div class="flex flex-row justify-content-between">
+                                    <span class="mb-4 text-900 font-medium">{{talent.heading}}</span>
+                                    <span><i class="pi pi-star-fill text-yellow-500 mr-1"></i><span class="font-medium">5.0</span></span>
+                                </div>
+                                
+                               
+                                <p class="text-700 m-0 p-0 line-height-3">{{talent.description}}</p>
+                            </div>
+                          
+                            <div class="border-top-1 surface-border pt-3 mt-3 flex flex-row align-items-center justify-content-between">
+                                <div class="flex flex-row">
+                                    <span class="pi pi-calendar"></span> &nbsp;<span class="block mb-2 text-900 font-bold">{{talent.duration}}</span>
+                                </div>
+                                <a pripple="" tabindex="0" class="p-ripple p-element p-2 cursor-pointer w-9rem mx-auto lg:mx-0 border-round font-medium text-center border-1 border-primary text-primary transition-duration-150" (click)="navToScheduling()">Book Now <span class="font-light">| {{talent.cost}}</span><span class="p-ink" style="height: 144px; width: 144px; top: -51.75px; left: 11px;"></span></a>
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>                
+        </div>
+        <div class="border-top-1 surface-border mt-5 py-5 w-full">
+            <div class="grid">
+                <div class="col-12 sm:col-6 lg:col-3 xl:col-2 p-3">
+                    <div class="text-center">
+                        <a class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mb-3 mx-auto cursor-pointer" style="width: 90px; height: 90px;" href="https://www.linkedin.com/in/eshwarramesh/">
+                            <img src="assets/demo/images/landing/linkedin.jpeg" height="40" width="40">
+                        </a>
+                        <span class="text-900 font-medium">LinkedIn</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 lg:col-3 xl:col-2 p-3 cursor-pointer" >
+                    <div class="text-center">
+                        <a class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mb-3 mx-auto" style="width: 90px; height: 90px;" href="https://github.com/iameshwar1">
+                            <img src="assets/demo/images/landing/github.png" height="40" width="70">
+                        </a>
+                        <span class="text-900 font-medium">Github</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 lg:col-3 xl:col-2 p-3 cursor-pointer">
+                    <div class="text-center">
+                        <a class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mb-3 mx-auto" style="width: 90px; height: 90px;" href="https://iameshwar1.github.io/profile/">
+                            <img src="assets/demo/images/landing/profile.webp" height="40" width="40">
+                        </a>
+                        <span class="text-900 font-medium">Profile</span>
+                    </div>
+                </div>
+            </div>
+           <!-- <span>My Profile: <a href="https://iameshwar1.github.io/profile/">{{'https://iameshwar1.github.io/profile/'}}</a></span> -->
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
